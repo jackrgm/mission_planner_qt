@@ -3,8 +3,18 @@
 A Qt-based graphical desktop application for planning and executing autonomous
 navigation missions for robots.
 
-This ROS package acts as a front end for `mission_planner`, a ROS package which
-provides a ROS server to which Mission Qt will interface with.
+This repository is a [ROS](https://wiki.ros.org/ROS/Introduction) package which
+provides the application. The application acts as a client which interfaces with
+the `missionsrv` ROS server provided by
+[mission_planner](https://github.com/jackrgm/mission_planner).
+
+## Work in Progress - Here be Dragons
+
+Mission Qt is currently under development, being taken from an old personal project
+and being redesigned, therefore the project code is currently in a
+work-in-progress state and is not yet currently ready for release and public
+use. However, you can view the current code in the `dev` branch. Changes are
+rapid and unpredictable in this state until a first major version release.
 
 ## Getting Started
 
