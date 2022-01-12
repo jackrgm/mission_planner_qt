@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>missionwindow</class>
+ <widget class="QWidget" name="missionwindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>933</width>
+    <height>776</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <property name="toolTip">
+   <string>Mission Planner</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="layouth_windowarea">
+     <item>
+      <layout class="QVBoxLayout" name="layoutv_trailpane">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="layouth_loadsave">
+         <item>
+          <widget class="QPushButton" name="btn_trailsave">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
+           <property name="toolTip">
+            <string>Save the working trail to a file (Shift+S)</string>
+           </property>
+           <property name="text">
+            <string>Save trail</string>
+           </property>
+           <property name="shortcut">
+            <string>Shift+S</string>
+           </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_trailload">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
+           <property name="toolTip">
+            <string>Load an existing trail from file (Shift+L)</string>
+           </property>
+           <property name="text">
+            <string>Load trail</string>
+           </property>
+           <property name="shortcut">
+            <string>Shift+L</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QListWidget" name="list_trail">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>350</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="spacing">
+          <number>1</number>
+         </property>
+         <property name="uniformItemSizes">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_add">
+         <property name="toolTip">
+          <string>Add a waypoint by specifying coordinates directly (a)</string>
+         </property>
+         <property name="text">
+          <string>Add</string>
+         </property>
+         <property name="shortcut">
+          <string>A</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="grid_trailctrl">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetDefaultConstraint</enum>
+         </property>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="btn_shiftu">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Shift the selected trail index up in the list (Shift+Up)</string>
+           </property>
+           <property name="text">
+            <string>Shift up</string>
+           </property>
+           <property name="shortcut">
+            <string>Shift+Up</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="btn_edit">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Replace the current index with a new coordinate (e)</string>
+           </property>
+           <property name="text">
+            <string>Edit</string>
+           </property>
+           <property name="shortcut">
+            <string>E</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="btn_shiftd">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Shift the selected index down in the list (Shift+Down)</string>
+           </property>
+           <property name="text">
+            <string>Shift down</string>
+           </property>
+           <property name="shortcut">
+            <string>Shift+Down</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="btn_delete">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Delete the selected index in the trail (Backspace)</string>
+           </property>
+           <property name="text">
+            <string>Delete</string>
+           </property>
+           <property name="shortcut">
+            <string>Backspace</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="btn_capman">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="toolTip">
+            <string>Capture the robot's location and add it to the trail (,)</string>
+           </property>
+           <property name="text">
+            <string>Manual capture</string>
+           </property>
+           <property name="shortcut">
+            <string>,</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QPushButton" name="btn_capauto">
+           <property name="toolTip">
+            <string>Start or stop auto capture mode (.)</string>
+           </property>
+           <property name="text">
+            <string>Auto capture</string>
+           </property>
+           <property name="shortcut">
+            <string>.</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_clear">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Delete every index in the working trail (DEL key)</string>
+         </property>
+         <property name="text">
+          <string>Clear trail contents</string>
+         </property>
+         <property name="shortcut">
+          <string>Del</string>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="layoutv_mission">
+       <item>
+        <layout class="QHBoxLayout" name="layouth_currentpos">
+         <item>
+          <widget class="QLabel" name="lbl_currentpos">
+           <property name="text">
+            <string>Current Position</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lined_currentpos">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="layouth_progress">
+         <item>
+          <widget class="QLabel" name="lbl_progress">
+           <property name="text">
+            <string>Progress</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="bar_progress">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="whatsThis">
+            <string extracomment="Total navigation progress"/>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="layouth_target">
+         <item>
+          <widget class="QLabel" name="lbl_target">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Current Target</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lined_target">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="cursorPosition">
+            <number>0</number>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="cursorMoveStyle">
+            <enum>Qt::LogicalMoveStyle</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="layouth_mstate">
+         <item>
+          <widget class="QLabel" name="lbl_mstate">
+           <property name="text">
+            <string>Mission Processing Status</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lined_mstate">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGraphicsView" name="map">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="capture_control">
+         <item>
+          <widget class="QPushButton" name="mission_start">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="toolTip">
+            <string>Start the mission (m)</string>
+           </property>
+           <property name="text">
+            <string>Start</string>
+           </property>
+           <property name="shortcut">
+            <string>M</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="mission_pause">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="toolTip">
+            <string>Pause or unpause the mission, stopping or resuming the robot's navigation (p)</string>
+           </property>
+           <property name="text">
+            <string>Pause</string>
+           </property>
+           <property name="shortcut">
+            <string>P</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="mission_reverse">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="toolTip">
+            <string>Reverse the robot's navigation through the trail, or vice versa (r)</string>
+           </property>
+           <property name="text">
+            <string>Reverse</string>
+           </property>
+           <property name="shortcut">
+            <string>R</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="mission_abort">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="toolTip">
+            <string>Abort the mission and stop the robot (Esc)</string>
+           </property>
+           <property name="text">
+            <string>Stop</string>
+           </property>
+           <property name="shortcut">
+            <string>Esc</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>btn_shiftu</tabstop>
+  <tabstop>btn_shiftd</tabstop>
+  <tabstop>btn_edit</tabstop>
+  <tabstop>btn_delete</tabstop>
+  <tabstop>mission_start</tabstop>
+  <tabstop>mission_pause</tabstop>
+  <tabstop>mission_reverse</tabstop>
+  <tabstop>mission_abort</tabstop>
+  <tabstop>lined_target</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
